@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Invitacion a los XV anos de Claudia Carolina Valdenegro Torres">
+    <meta name="description" content="Invitacion a los XV anos de Renata Muro Valdenegro">
     <meta name="theme-color" content="#0d9488">
-    <title>XV Anos - Claudia Carolina Valdenegro Torres</title>
+    <title>XV Anos - Renata Muro Valdenegro</title>
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -153,8 +153,8 @@
             <p class="intro-studio">Producciones Foro 7</p>
             <p class="intro-presents">presenta</p>
             <div class="intro-line"></div>
-            <h1 class="intro-name">Claudia Carolina</h1>
-            <p class="intro-surname">Valdenegro Torres</p>
+            <h1 class="intro-name">Renata</h1>
+            <p class="intro-surname">Muro Valdenegro</p>
             <p class="intro-xv">XV &nbsp; Anos</p>
         </div>
         <p class="intro-skip">Toca para continuar</p>
@@ -172,7 +172,7 @@
         <header>
             <div class="crown"><i class="fas fa-crown"></i></div>
             <h1 class="main-title">MIS XV ANOS</h1>
-            <h2 class="quincea&ntilde;era-name">Claudia Carolina<br>Valdenegro Torres</h2>
+            <h2 class="quincea&ntilde;era-name">Renata<br>Muro Valdenegro</h2>
             <div class="divider"></div>
         </header>
 
@@ -371,15 +371,15 @@
             <p>Fotografia, Video, Dron e Invitaciones Web</p>
             <p><i class="fas fa-phone-alt"></i> Contacto: +52 1 314 124 9757</p>
             <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.7;">
-                &copy; 2026 - Claudia Carolina Valdenegro Torres XV Anos
+                &copy; 2026 - Renata Muro Valdenegro XV Anos
             </p>
         </footer>
     </div>
 
     <script>
-        // Countdown Timer - placeholder: August 1, 2026 at 7:00 PM
+        // Countdown Timer: 26 de noviembre de 2026, 7:00 PM (Misa)
         function updateCountdown() {
-            const eventDate = new Date(2026, 7, 1, 19, 0, 0).getTime(); // Agosto = 7 (0-indexed)
+            const eventDate = new Date(2026, 10, 26, 19, 0, 0).getTime(); // Noviembre = 10 (0-indexed)
             const now = new Date().getTime();
             const distance = eventDate - now;
 
@@ -404,7 +404,7 @@
 
         // Social Sharing
         function shareWhatsApp() {
-            const text = '&#161;Estas invitado a mis XV anos! - Claudia Carolina Valdenegro Torres';
+            const text = '&#161;Estas invitado a mis XV anos! - Renata Muro Valdenegro';
             const url = window.location.href;
             window.open(`https://wa.me/?text=${encodeURIComponent(text + ' ' + url)}`, '_blank');
         }
@@ -415,7 +415,7 @@
         }
 
         function shareTwitter() {
-            const text = '&#161;Estas invitado a mis XV anos! - Claudia Carolina Valdenegro Torres';
+            const text = '&#161;Estas invitado a mis XV anos! - Renata Muro Valdenegro';
             const url = window.location.href;
             window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
         }
@@ -460,7 +460,7 @@
         }, { passive: true });
     })();
     </script>
-    <script src="js/visitas.js?v=2"></script>
+    <script src="js/visitas-v2.js?v=2"></script>
 
     <script src="js/rsvp-guest.js?v=1"></script>
 <script src="js/foro7-footer.js?v=1"></script>
@@ -471,9 +471,9 @@
         const SB_URL  = 'https://nzpujmlienzfetqcgsxz.supabase.co';
         const SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56cHVqbWxpZW56ZmV0cWNnc3h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2ODYzMzYsImV4cCI6MjA5MDI2MjMzNn0.xl3lsb-KYj5tVLKTnzpbsdEGoV9ySnswH4eyRuyEH1s';
         const SB_H    = { 'apikey': SB_ANON, 'Authorization': 'Bearer ' + SB_ANON, 'Content-Type': 'application/json' };
-        const SLUG    = 'xv-claudia-carolina-valdenegro';
+        const SLUG    = 'xv-renata-muro-valdenegro';
         const WA_NUMS = ['5214792191530'];
-        const NOMBRE_EVENTO = 'los XV anos de Claudia Carolina';
+        const NOMBRE_EVENTO = 'los XV anos de Renata';
 
         function attachHandler() {
             const form = document.getElementById('rsvpForm');

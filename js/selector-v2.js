@@ -3,7 +3,7 @@
 // ========================================
 const SUPABASE_URL  = 'https://nzpujmlienzfetqcgsxz.supabase.co';
 const SUPABASE_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im56cHVqbWxpZW56ZmV0cWNnc3h6Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ2ODYzMzYsImV4cCI6MjA5MDI2MjMzNn0.xl3lsb-KYj5tVLKTnzpbsdEGoV9ySnswH4eyRuyEH1s';
-const EVENTO_SLUG   = 'xv-claudia-carolina-valdenegro';
+const EVENTO_SLUG   = 'xv-renata-muro-valdenegro';
 const SB_HEADERS    = { 'apikey': SUPABASE_ANON, 'Authorization': `Bearer ${SUPABASE_ANON}`, 'Content-Type': 'application/json' };
 
 function getSessionId() {
@@ -37,7 +37,7 @@ async function sbRegistrarVisita(pagina = 'selector') {
 }
 
 // ========================================
-// GLOBAL VARIABLES - XV Años Claudia Carolina
+// GLOBAL VARIABLES - XV Años Renata Muro Valdenegro
 // ========================================
 // Lista de fotos generada automáticamente
 // Total: 1111 fotos
@@ -275,8 +275,8 @@ function getThumbPath(fullPath) {
 
 // ── Configuración del evento ──
 const CONFIG = {
-    slug:               'xv-anos-claudia-carolina',
-    nombre:             (window.EVENT_CONFIG && window.EVENT_CONFIG.nombre)             || 'Claudia Carolina Valdenegro Torres',
+    slug:               'xv-renata-muro-valdenegro',
+    nombre:             (window.EVENT_CONFIG && window.EVENT_CONFIG.nombre)             || 'Renata Muro Valdenegro',
     telefono:           (window.EVENT_CONFIG && window.EVENT_CONFIG.telefono)           || '',
     fechaEvento:        (window.EVENT_CONFIG && window.EVENT_CONFIG.fechaEvento)        || new Date(2026, 2, 28, 17, 0, 0),
     limiteImpresion:    200,
@@ -878,7 +878,7 @@ function exportToJSON() {
     const costoExtra = fotosAdicionales * COSTO_FOTO_ADICIONAL;
 
     const exportData = {
-        evento: 'XV Años - Claudia Carolina Valdenegro Torres',
+        evento: 'XV Años - Renata Muro Valdenegro',
         fecha_exportacion: new Date().toISOString(),
         total_fotos: photos.length,
         estadisticas: stats,
@@ -905,7 +905,7 @@ function exportToJSON() {
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
     a.href = url;
-    a.download = `seleccion-fotos-xv-claudia-carolina-${new Date().toISOString().split('T')[0]}.json`;
+    a.download = `seleccion-fotos-xv-renata-muro-valdenegro-${new Date().toISOString().split('T')[0]}.json`;
     a.click();
     URL.revokeObjectURL(url);
 
