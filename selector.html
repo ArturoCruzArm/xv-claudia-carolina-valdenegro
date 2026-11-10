@@ -1,90 +1,134 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Selector de Fotos - XV Años Renata Muro Valdenegro</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/fontawesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/solid.min.css">
-    <link rel="stylesheet" href="css/selector.css?v=1">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#6d1f33">
+<meta name="robots" content="noindex, nofollow">
+<title>Selector de Fotos · XV Años Renata Muro Valdenegro</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css?v=1">
+<link rel="stylesheet" href="css/selector-fotos-20261023.css">
+<link rel="stylesheet" href="css/selector-vista.css?v=20261028">
 </head>
 <body>
-    <header class="header">
-        <h1 class="main-title">Renata Muro Valdenegro</h1>
-        <p class="subtitle">XV Años</p>
-        <p class="instructions">Selecciona las fotos para impresión</p>
-    </header>
 
+<details class="selector-menu" open>
+<summary>Menú del selector <span class="menu-abierto">· Minimizar</span><span class="menu-cerrado">· Mostrar</span></summary>
+<header class="header">
+    <p class="script">Selector de Fotos</p>
+    <h1 class="main-title" id="tituloEvento">Renata Muro Valdenegro</h1>
+    <p class="subtitle" id="subtituloEvento">XV Años</p>
+    <p class="instructions" id="instrucciones"></p>
+</header>
+
+<section class="control-panel">
     <div class="container">
-        <div class="control-panel">
-            <div class="stats-row">
-                <div class="stat-card impresion"><span class="stat-icon">📸</span><div class="stat-info"><h3>Impresión</h3><span class="stat-count" id="countImpresion">0/200</span></div></div>
-                <div class="stat-card invitacion"><span class="stat-icon">💌</span><div class="stat-info"><h3>Invitación</h3><span class="stat-count" id="countInvitacion">0</span></div></div>
-                <div class="stat-card descartada"><span class="stat-icon">❌</span><div class="stat-info"><h3>Descartadas</h3><span class="stat-count" id="countDescartada">0</span></div></div>
-                <div class="stat-card sin-clasificar"><span class="stat-icon">⭕</span><div class="stat-info"><h3>Sin Clasificar</h3><span class="stat-count" id="countSinClasificar">0</span></div></div>
-            </div>
-            <div id="extraCostDisplay" style="display:none; background:rgba(255,152,0,0.15); border:1.5px solid #ff9800; border-radius:10px; padding:10px 16px; margin:10px 0; text-align:center; color:#ff9800;">
-                ⚠️ Fotos adicionales: <strong id="extraCostDetail"></strong> — Costo extra: <strong id="extraCostAmount"></strong>
-            </div>
-            <div class="action-buttons">
-                <button class="btn btn-filter active" id="btnFilterAll" data-filter="all">Todas</button>
-                <button class="btn btn-filter filter-impresion" id="btnFilterImpresion" data-filter="impresion">Impresión</button>
-                <button class="btn btn-filter filter-invitacion" id="btnFilterInvitacion" data-filter="invitacion">Invitación</button>
-                <button class="btn btn-filter filter-descartada" id="btnFilterDescartada" data-filter="descartada">Descartadas</button>
-                <button class="btn btn-filter filter-sin-clasificar" id="btnFilterSinClasificar" data-filter="sin-clasificar">Sin Clasificar</button>
-            </div>
-            <div class="action-buttons secondary">
-                <button class="btn btn-export" id="btnExport"><i class="fas fa-download"></i> Descargar Reporte</button>
-                <button class="btn btn-share" id="btnShare"><i class="fas fa-copy"></i> Copiar Resumen</button>
-                <button class="btn btn-clear" id="btnClear"><i class="fas fa-trash"></i> Limpiar Todo</button>
-            </div>
-        </div>
-        <section class="gallery-section">
-            <div class="photos-grid" id="photosGrid"></div>
-        </section>
-    </div>
+        <div class="stats-row" id="statsRow"></div>
+        <div class="action-buttons" id="filterRow"></div>
+        <p class="nota-filtro" id="notaFiltro"></p>
 
-    <div class="modal" id="photoModal">
-        <button class="modal-nav-btn modal-prev" id="btnPrevPhoto">&#10094;</button>
-        <button class="modal-nav-btn modal-next" id="btnNextPhoto">&#10095;</button>
-        <div class="modal-content">
-            <span class="modal-close">&times;</span>
-            <div class="modal-body">
-                <div class="modal-image-container">
-                    <img id="modalImage" src="" alt="Foto seleccionada">
-                    <div class="modal-photo-number" id="modalPhotoNumber"></div>
-                </div>
-                <div class="modal-options">
-                    <h3>Clasificar esta foto</h3>
-                    <p class="modal-subtitle">Selecciona las categorías para esta imagen</p>
-                    <div class="option-buttons">
-                        <button class="option-btn impresion" data-category="impresion"><span class="option-icon">📸</span><span class="option-text">Impresión (5x7)</span><span class="option-check">✓</span></button>
-                        <button class="option-btn invitacion" data-category="invitacion"><span class="option-icon">💌</span><span class="option-text">Para Invitación</span><span class="option-check">✓</span></button>
-                        <button class="option-btn descartada" data-category="descartada"><span class="option-icon">❌</span><span class="option-text">Descartar</span><span class="option-check">✓</span></button>
-                    </div>
-                    <div class="modal-actions">
-                        <button class="btn btn-cancel" id="btnCancelSelection">Cancelar</button>
-                        <button class="btn btn-save" id="btnSaveSelection">Guardar</button>
-                    </div>
-                </div>
-            </div>
+        <div class="aviso aviso-naranja" id="avisoExtra"></div>
+        <div class="aviso aviso-dorado"  id="avisoAmpliacion"></div>
+        <div class="aviso aviso-gris"    id="avisoOffline">
+            📴 Sin conexión con la nube. Tus marcas se guardan en este dispositivo y se sincronizan al reconectar.
+        </div>
+
+        <div class="action-buttons secondary">
+            <button class="btn btn-suave"    id="btnExport">📥 Descargar Reporte</button>
+            <button class="btn btn-suave" id="btnJSON">💾 Respaldo JSON</button>
+            <button class="btn btn-suave" id="btnRefresh">🔄 Actualizar selecciones</button>
+            <button class="btn btn-suave"    id="btnCopy">📤 Copiar Resumen</button>
+            <button class="btn btn-primario" id="btnShareAlbum">🔗 Compartir Álbum</button>
+            <a class="btn btn-suave" href="album.html">📖 Ver álbum digital</a>
+            <a class="btn btn-suave" href="https://www.youtube.com/@Foro7/videos" target="_blank" rel="noopener noreferrer">▶ Ver canal Foro7 en YouTube</a>
+            <button class="btn btn-suave" data-abrir-ayuda>❔ Ayuda</button>
+            <button class="btn btn-suave"    id="btnClear">🗑️ Limpiar Todo</button>
         </div>
     </div>
-    <div class="toast" id="toast"></div>
+</section>
 
-    <script>window.EVENT_CONFIG = { telefono: '5214792191530', nombre: 'Renata Muro Valdenegro', fechaEvento: new Date(2026, 10, 14, 19, 0, 0), costoFotoAdicional: 15 };</script>
-    <script src="js/selector-v2.js?v=2"></script>
-    <script src="js/visitas-v2.js?v=2"></script>
-    <script src="js/foro7-footer.js?v=1"></script>
 
-    <div id="f7-banner" style="position:fixed;bottom:0;left:0;right:0;z-index:500;background:linear-gradient(135deg,#1a1a2e,#16213e);padding:8px 16px;display:flex;align-items:center;justify-content:center;gap:10px;font-family:'Lato',sans-serif;font-size:.8rem;color:rgba(255,255,255,.85);box-shadow:0 -2px 12px rgba(0,0,0,.3);">
-        <span style="font-size:1rem;">📸</span>
-        <span><b>Foro 7</b> · Fotografía y Video · <a href="https://wa.me/5214779203776" target="_blank" style="color:#60a5fa;text-decoration:none;">477-920-3776</a></span>
-        <button onclick="this.parentElement.remove()" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:1.1rem;cursor:pointer;margin-left:8px;padding:2px 6px;">✕</button>
+
+</details>
+<main class="gallery-section">
+    <div class="container">
+        <div class="photos-grid" id="photosGrid"></div>
     </div>
+</main>
+
+<!-- ─────────── Modal de foto ─────────── -->
+<div class="modal" id="photoModal" role="dialog" aria-modal="true" aria-label="Clasificar foto">
+    <button class="modal-nav-btn modal-prev" id="btnPrev" aria-label="Foto anterior">&#10094;</button>
+    <button class="modal-nav-btn modal-next" id="btnNext" aria-label="Foto siguiente">&#10095;</button>
+    <div class="modal-content">
+        <button type="button" class="btn btn-suave photo-view-toggle" id="btnPhotoView" aria-expanded="false">Mostrar opciones de selección</button>
+        <button class="modal-close" aria-label="Cerrar">&times;</button>
+        <div class="modal-body">
+            <div class="modal-image-container">
+                <img id="modalImage" src="" alt="">
+                <div class="modal-photo-number" id="modalPhotoNumber" aria-live="polite"></div>
+            </div>
+            <div class="modal-options">
+                <h3>¿Qué quieres con esta foto?</h3>
+                <p class="modal-subtitle">Puedes marcar varias opciones a la vez.</p>
+                <div class="option-buttons" id="optionButtons"></div>
+                <div class="modal-actions">
+                    <button class="btn btn-descarga" id="btnDownload">⬇ JPG</button>
+                    <button class="btn btn-descarga" id="btnDownloadClose">⬇ Descargar y Cerrar</button>
+                    <button class="btn btn-suave" id="btnDeleteSelection">Borrar esta selección</button>
+                    <button class="btn btn-suave"    id="btnCancel">Cancelar</button>
+                    <button class="btn btn-guardar"  id="btnSave">Guardar</button>
+                </div>
+                <p class="modal-tip">
+                    Desliza ← → para cambiar de foto (tus marcas se guardan solas) ·
+                    Teclas 1-5 marcan categoría · Enter guarda · Esc cierra
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ─────────── Modal compartir álbum ─────────── -->
+<div class="modal" id="compartirModal" role="dialog" aria-modal="true" aria-label="Compartir álbum">
+    <div class="modal-content">
+        <button class="modal-close" id="compartirCerrar" aria-label="Cerrar">&times;</button>
+        <div class="compartir-cuerpo">
+            <h3>🔗 Compartir álbum</h3>
+            <p>
+                Genera un enlace de <strong>solo lectura</strong>. Quien lo abra verá únicamente
+                las fotos de esa categoría, en pantalla completa y <strong>sin las herramientas
+                del selector</strong>: no puede cambiar tu selección.
+            </p>
+            <div id="compartirOpciones"></div>
+            <input type="text" id="compartirUrl" readonly onclick="this.select()">
+            <div class="compartir-acciones">
+                <button class="btn btn-suave"    id="compartirCopiar">📋 Copiar</button>
+                <button class="btn btn-suave"    id="compartirAbrir">👁 Ver</button>
+                <button class="btn btn-primario" id="compartirWhatsapp">💬 WhatsApp</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<footer class="footer">
+    <p>FORO 7 · Fotografía y Video · León, Gto.</p>
+    <p><a href="https://wa.me/524779203776" target="_blank" rel="noopener">WhatsApp 477 920 3776</a></p>
+</footer>
+
+<script src="js/selector-config.js?v=20261110b"></script>
+<script src="js/photos-claudia.js"></script>
+<script src="js/supabase-api.js?v=1"></script>
+<script src="js/reliable-sync.js?v=20261110"></script>
+<script src="js/selector.js?v=20261110b"></script>
+<script src="js/selector-vista.js?v=20261028"></script>
+<script src="js/ayuda.js?v=1"></script>
+
+<script src="js/foro7-footer.js?v=1"></script>
 </body>
 </html>
